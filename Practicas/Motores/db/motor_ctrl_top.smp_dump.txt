@@ -1,0 +1,6 @@
+
+State Machine - |motor_ctrl_top|spi_slave_sync:u_spi|st
+Name st.WAIT_H st.SHIFT st.IDLE 
+st.IDLE 0 0 0 
+st.SHIFT 0 1 1 
+st.WAIT_H 1 0 1 

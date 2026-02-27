@@ -1,0 +1,9 @@
+Analysis & Synthesis Status : Successful - Tue May 13 15:46:31 2025
+Quartus Prime Version : 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+Revision Name : motor_ctrl_top
+Top-level Entity Name : motor_ctrl_top
+Family : MAX II
+Total logic elements : 130
+Total pins : 13
+Total virtual pins : 0
+UFM blocks : 0 / 1 ( 0 % )

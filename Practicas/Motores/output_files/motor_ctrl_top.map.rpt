@@ -1,0 +1,528 @@
+Analysis & Synthesis report for motor_ctrl_top
+Tue May 13 15:46:31 2025
+Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. State Machine - |motor_ctrl_top|spi_slave_sync:u_spi|st
+  9. Registers Removed During Synthesis
+ 10. General Register Statistics
+ 11. Inverted Register Statistics
+ 12. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 13. Parameter Settings for User Entity Instance: spi_slave_sync:u_spi
+ 14. Parameter Settings for User Entity Instance: regP:u_rc
+ 15. Parameter Settings for User Entity Instance: regP:u_rd
+ 16. Parameter Settings for User Entity Instance: pwm_module:u_pwm1
+ 17. Parameter Settings for User Entity Instance: pwm_module:u_pwm1|ContGen:u_div
+ 18. Parameter Settings for User Entity Instance: pwm_module:u_pwm1|ContGen:u_cnt
+ 19. Parameter Settings for User Entity Instance: pwm_module:u_pwm1|regP:u_sh
+ 20. Parameter Settings for User Entity Instance: pwm_module:u_pwm1|regP:u_cmp
+ 21. Parameter Settings for User Entity Instance: pwm_module:u_pwm2
+ 22. Parameter Settings for User Entity Instance: pwm_module:u_pwm2|ContGen:u_div
+ 23. Parameter Settings for User Entity Instance: pwm_module:u_pwm2|ContGen:u_cnt
+ 24. Parameter Settings for User Entity Instance: pwm_module:u_pwm2|regP:u_sh
+ 25. Parameter Settings for User Entity Instance: pwm_module:u_pwm2|regP:u_cmp
+ 26. Port Connectivity Checks: "pwm_module:u_pwm1|ContGen:u_div"
+ 27. Port Connectivity Checks: "spi_slave_sync:u_spi"
+ 28. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2018  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details.
+
+
+
++---------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                              ;
++-----------------------------+---------------------------------------------+
+; Analysis & Synthesis Status ; Successful - Tue May 13 15:46:31 2025       ;
+; Quartus Prime Version       ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
+; Revision Name               ; motor_ctrl_top                              ;
+; Top-level Entity Name       ; motor_ctrl_top                              ;
+; Family                      ; MAX II                                      ;
+; Total logic elements        ; 130                                         ;
+; Total pins                  ; 13                                          ;
+; Total virtual pins          ; 0                                           ;
+; UFM blocks                  ; 0 / 1 ( 0 % )                               ;
++-----------------------------+---------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                              ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                           ; Setting            ; Default Value      ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                           ; EPM240T100C5       ;                    ;
+; Top-level entity name                                            ; motor_ctrl_top     ; motor_ctrl_top     ;
+; Family name                                                      ; MAX II             ; Cyclone V          ;
+; Use smart compilation                                            ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                      ; Off                ; Off                ;
+; Restructure Multiplexers                                         ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                              ; Off                ; Off                ;
+; Preserve fewer node names                                        ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                    ; Enable             ; Enable             ;
+; Verilog Version                                                  ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                     ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                         ; Auto               ; Auto               ;
+; Safe State Machine                                               ; Off                ; Off                ;
+; Extract Verilog State Machines                                   ; On                 ; On                 ;
+; Extract VHDL State Machines                                      ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                       ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                   ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                          ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                        ; On                 ; On                 ;
+; Parallel Synthesis                                               ; On                 ; On                 ;
+; NOT Gate Push-Back                                               ; On                 ; On                 ;
+; Power-Up Don't Care                                              ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                     ; Off                ; Off                ;
+; Remove Duplicate Registers                                       ; On                 ; On                 ;
+; Ignore CARRY Buffers                                             ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                           ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                            ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                        ; Off                ; Off                ;
+; Ignore LCELL Buffers                                             ; Off                ; Off                ;
+; Ignore SOFT Buffers                                              ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                   ; Off                ; Off                ;
+; Optimization Technique                                           ; Balanced           ; Balanced           ;
+; Carry Chain Length                                               ; 70                 ; 70                 ;
+; Auto Carry Chains                                                ; On                 ; On                 ;
+; Auto Open-Drain Pins                                             ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                            ; Off                ; Off                ;
+; Auto Shift Register Replacement                                  ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                  ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                    ; On                 ; On                 ;
+; Allow Synchronous Control Signals                                ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                           ; Off                ; Off                ;
+; Auto Resource Sharing                                            ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing              ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                ; Off                ; Off                ;
+; Report Parameter Settings                                        ; On                 ; On                 ;
+; Report Source Assignments                                        ; On                 ; On                 ;
+; Report Connectivity Checks                                       ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                               ; Off                ; Off                ;
+; Synchronization Register Chain Length                            ; 2                  ; 2                  ;
+; Power Optimization During Synthesis                              ; Normal compilation ; Normal compilation ;
+; HDL message level                                                ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                  ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report         ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report               ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report        ; 100                ; 100                ;
+; Clock MUX Protection                                             ; On                 ; On                 ;
+; Block Design Naming                                              ; Auto               ; Auto               ;
+; Synthesis Effort                                                 ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal     ; On                 ; On                 ;
+; Analysis & Synthesis Message Level                               ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                      ; Auto               ; Auto               ;
++------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 16          ;
+; Maximum allowed            ; 16          ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 1           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
++----------------------------+-------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                            ;
++----------------------------------+-----------------+-----------------+--------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                     ; Library ;
++----------------------------------+-----------------+-----------------+--------------------------------------------------+---------+
+; motor_ctrl_top.vhd               ; yes             ; User VHDL File  ; C:/intelFPGA_lite/18.1/cokkkk/motor_ctrl_top.vhd ;         ;
+; decoder.vhd                      ; yes             ; User VHDL File  ; C:/intelFPGA_lite/18.1/cokkkk/decoder.vhd        ;         ;
+; ctrl_fsm.vhd                     ; yes             ; User VHDL File  ; C:/intelFPGA_lite/18.1/cokkkk/ctrl_fsm.vhd       ;         ;
+; spi_slave_sync.vhd               ; yes             ; User VHDL File  ; C:/intelFPGA_lite/18.1/cokkkk/spi_slave_sync.vhd ;         ;
+; regP.vhd                         ; yes             ; User VHDL File  ; C:/intelFPGA_lite/18.1/cokkkk/regP.vhd           ;         ;
+; ContGen.vhd                      ; yes             ; User VHDL File  ; C:/intelFPGA_lite/18.1/cokkkk/ContGen.vhd        ;         ;
+; pwm_pkg.vhd                      ; yes             ; User VHDL File  ; C:/intelFPGA_lite/18.1/cokkkk/pwm_pkg.vhd        ;         ;
+; pwm_module.vhd                   ; yes             ; User VHDL File  ; C:/intelFPGA_lite/18.1/cokkkk/pwm_module.vhd     ;         ;
++----------------------------------+-----------------+-----------------+--------------------------------------------------+---------+
+
+
++-------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary           ;
++---------------------------------------------+---------+
+; Resource                                    ; Usage   ;
++---------------------------------------------+---------+
+; Total logic elements                        ; 130     ;
+;     -- Combinational with no register       ; 39      ;
+;     -- Register only                        ; 35      ;
+;     -- Combinational with a register        ; 56      ;
+;                                             ;         ;
+; Logic element usage by number of LUT inputs ;         ;
+;     -- 4 input functions                    ; 25      ;
+;     -- 3 input functions                    ; 7       ;
+;     -- 2 input functions                    ; 58      ;
+;     -- 1 input functions                    ; 4       ;
+;     -- 0 input functions                    ; 1       ;
+;                                             ;         ;
+; Logic elements by mode                      ;         ;
+;     -- normal mode                          ; 111     ;
+;     -- arithmetic mode                      ; 19      ;
+;     -- qfbk mode                            ; 0       ;
+;     -- register cascade mode                ; 0       ;
+;     -- synchronous clear/load mode          ; 24      ;
+;     -- asynchronous clear/load mode         ; 35      ;
+;                                             ;         ;
+; Total registers                             ; 91      ;
+; Total logic cells in carry chains           ; 22      ;
+; I/O pins                                    ; 13      ;
+; Maximum fan-out node                        ; clk_sys ;
+; Maximum fan-out                             ; 91      ;
+; Total fan-out                               ; 498     ;
+; Average fan-out                             ; 3.48    ;
++---------------------------------------------+---------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                               ;
++----------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+-------------------------------------------------+----------------+--------------+
+; Compilation Hierarchy Node ; Logic Cells ; LC Registers ; UFM Blocks ; Pins ; Virtual Pins ; LUT-Only LCs ; Register-Only LCs ; LUT/Register LCs ; Carry Chain LCs ; Packed LCs ; Full Hierarchy Name                             ; Entity Name    ; Library Name ;
++----------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+-------------------------------------------------+----------------+--------------+
+; |motor_ctrl_top            ; 130 (4)     ; 91           ; 0          ; 13   ; 0            ; 39 (0)       ; 35 (1)            ; 56 (3)           ; 22 (0)          ; 0 (0)      ; |motor_ctrl_top                                 ; motor_ctrl_top ; work         ;
+;    |ctrl_fsm:u_fsm|        ; 3 (3)       ; 3            ; 0          ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 3 (3)            ; 0 (0)           ; 0 (0)      ; |motor_ctrl_top|ctrl_fsm:u_fsm                  ; ctrl_fsm       ; work         ;
+;    |decoder:u_dec|         ; 8 (8)       ; 0            ; 0          ; 0    ; 0            ; 8 (8)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |motor_ctrl_top|decoder:u_dec                   ; decoder        ; work         ;
+;    |pwm_module:u_pwm1|     ; 29 (4)      ; 20           ; 0          ; 0    ; 0            ; 9 (4)        ; 0 (0)             ; 20 (0)           ; 8 (0)           ; 0 (0)      ; |motor_ctrl_top|pwm_module:u_pwm1               ; pwm_module     ; work         ;
+;       |ContGen:u_cnt|      ; 6 (6)       ; 4            ; 0          ; 0    ; 0            ; 2 (2)        ; 0 (0)             ; 4 (4)            ; 0 (0)           ; 0 (0)      ; |motor_ctrl_top|pwm_module:u_pwm1|ContGen:u_cnt ; ContGen        ; work         ;
+;       |ContGen:u_div|      ; 10 (10)     ; 8            ; 0          ; 0    ; 0            ; 2 (2)        ; 0 (0)             ; 8 (8)            ; 8 (8)           ; 0 (0)      ; |motor_ctrl_top|pwm_module:u_pwm1|ContGen:u_div ; ContGen        ; work         ;
+;       |regP:u_cmp|         ; 4 (4)       ; 4            ; 0          ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 4 (4)            ; 0 (0)           ; 0 (0)      ; |motor_ctrl_top|pwm_module:u_pwm1|regP:u_cmp    ; regP           ; work         ;
+;       |regP:u_sh|          ; 5 (5)       ; 4            ; 0          ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 4 (4)            ; 0 (0)           ; 0 (0)      ; |motor_ctrl_top|pwm_module:u_pwm1|regP:u_sh     ; regP           ; work         ;
+;    |pwm_module:u_pwm2|     ; 14 (4)      ; 8            ; 0          ; 0    ; 0            ; 6 (4)        ; 0 (0)             ; 8 (0)            ; 0 (0)           ; 0 (0)      ; |motor_ctrl_top|pwm_module:u_pwm2               ; pwm_module     ; work         ;
+;       |ContGen:u_cnt|      ; 1 (1)       ; 0            ; 0          ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |motor_ctrl_top|pwm_module:u_pwm2|ContGen:u_cnt ; ContGen        ; work         ;
+;       |regP:u_cmp|         ; 5 (5)       ; 4            ; 0          ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 4 (4)            ; 0 (0)           ; 0 (0)      ; |motor_ctrl_top|pwm_module:u_pwm2|regP:u_cmp    ; regP           ; work         ;
+;       |regP:u_sh|          ; 4 (4)       ; 4            ; 0          ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 4 (4)            ; 0 (0)           ; 0 (0)      ; |motor_ctrl_top|pwm_module:u_pwm2|regP:u_sh     ; regP           ; work         ;
+;    |regP:u_rc|             ; 13 (13)     ; 6            ; 0          ; 0    ; 0            ; 7 (7)        ; 6 (6)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |motor_ctrl_top|regP:u_rc                       ; regP           ; work         ;
+;    |regP:u_rd|             ; 8 (8)       ; 8            ; 0          ; 0    ; 0            ; 0 (0)        ; 6 (6)             ; 2 (2)            ; 0 (0)           ; 0 (0)      ; |motor_ctrl_top|regP:u_rd                       ; regP           ; work         ;
+;    |spi_slave_sync:u_spi|  ; 51 (51)     ; 42           ; 0          ; 0    ; 0            ; 9 (9)        ; 22 (22)           ; 20 (20)          ; 14 (14)         ; 0 (0)      ; |motor_ctrl_top|spi_slave_sync:u_spi            ; spi_slave_sync ; work         ;
++----------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+-------------------------------------------------+----------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++---------------------------------------------------------+
+; State Machine - |motor_ctrl_top|spi_slave_sync:u_spi|st ;
++-----------+-----------+----------+----------------------+
+; Name      ; st.WAIT_H ; st.SHIFT ; st.IDLE              ;
++-----------+-----------+----------+----------------------+
+; st.IDLE   ; 0         ; 0        ; 0                    ;
+; st.SHIFT  ; 0         ; 1        ; 1                    ;
+; st.WAIT_H ; 1         ; 0        ; 1                    ;
++-----------+-----------+----------+----------------------+
+
+
++---------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                          ;
++----------------------------------------+----------------------------------------------------+
+; Register name                          ; Reason for Removal                                 ;
++----------------------------------------+----------------------------------------------------+
+; pwm_module:u_pwm2|ContGen:u_cnt|cnt[3] ; Merged with pwm_module:u_pwm1|ContGen:u_cnt|cnt[3] ;
+; pwm_module:u_pwm2|ContGen:u_cnt|cnt[2] ; Merged with pwm_module:u_pwm1|ContGen:u_cnt|cnt[2] ;
+; pwm_module:u_pwm2|ContGen:u_cnt|cnt[1] ; Merged with pwm_module:u_pwm1|ContGen:u_cnt|cnt[1] ;
+; pwm_module:u_pwm2|ContGen:u_cnt|cnt[0] ; Merged with pwm_module:u_pwm1|ContGen:u_cnt|cnt[0] ;
+; pwm_module:u_pwm2|ContGen:u_div|cnt[7] ; Merged with pwm_module:u_pwm1|ContGen:u_div|cnt[7] ;
+; pwm_module:u_pwm2|ContGen:u_div|cnt[6] ; Merged with pwm_module:u_pwm1|ContGen:u_div|cnt[6] ;
+; pwm_module:u_pwm2|ContGen:u_div|cnt[5] ; Merged with pwm_module:u_pwm1|ContGen:u_div|cnt[5] ;
+; pwm_module:u_pwm2|ContGen:u_div|cnt[4] ; Merged with pwm_module:u_pwm1|ContGen:u_div|cnt[4] ;
+; pwm_module:u_pwm2|ContGen:u_div|cnt[3] ; Merged with pwm_module:u_pwm1|ContGen:u_div|cnt[3] ;
+; pwm_module:u_pwm2|ContGen:u_div|cnt[2] ; Merged with pwm_module:u_pwm1|ContGen:u_div|cnt[2] ;
+; pwm_module:u_pwm2|ContGen:u_div|cnt[1] ; Merged with pwm_module:u_pwm1|ContGen:u_div|cnt[1] ;
+; pwm_module:u_pwm2|ContGen:u_div|cnt[0] ; Merged with pwm_module:u_pwm1|ContGen:u_div|cnt[0] ;
+; Total Number of Removed Registers = 12 ;                                                    ;
++----------------------------------------+----------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 91    ;
+; Number of registers using Synchronous Clear  ; 24    ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 35    ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 64    ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++--------------------------------------------------+
+; Inverted Register Statistics                     ;
++----------------------------------------+---------+
+; Inverted Register                      ; Fan out ;
++----------------------------------------+---------+
+; rst_sync                               ; 69      ;
+; SS_in                                  ; 2       ;
+; ss2                                    ; 1       ;
+; ss1                                    ; 2       ;
+; Total number of inverted registers = 4 ;         ;
++----------------------------------------+---------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                       ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                             ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------+
+; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |motor_ctrl_top|pwm_module:u_pwm1|ContGen:u_div|cnt[1] ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |motor_ctrl_top|pwm_module:u_pwm1|regP:u_cmp|r[3]      ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |motor_ctrl_top|regP:u_rc|r[0]                         ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |motor_ctrl_top|pwm_module:u_pwm2|regP:u_cmp|r[3]      ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |motor_ctrl_top|pwm_module:u_pwm1|regP:u_sh|r[1]       ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |motor_ctrl_top|ctrl_fsm:u_fsm|LOAD_CTRL               ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |motor_ctrl_top|pwm_module:u_pwm1|ContGen:u_cnt|cnt[3] ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 4 LEs                ; 8 LEs                  ; Yes        ; |motor_ctrl_top|spi_slave_sync:u_spi|bit_cnt[3]        ;
+; 6:1                ; 10 bits   ; 40 LEs        ; 10 LEs               ; 30 LEs                 ; Yes        ; |motor_ctrl_top|spi_slave_sync:u_spi|timeout[0]        ;
+; 7:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; No         ; |motor_ctrl_top|spi_slave_sync:u_spi|Selector0         ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------+
+
+
++-------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: spi_slave_sync:u_spi ;
++----------------+-------+------------------------------------------+
+; Parameter Name ; Value ; Type                                     ;
++----------------+-------+------------------------------------------+
+; data_width     ; 8     ; Signed Integer                           ;
+; timeout_max    ; 1000  ; Signed Integer                           ;
++----------------+-------+------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------+
+; Parameter Settings for User Entity Instance: regP:u_rc ;
++----------------+-------+-------------------------------+
+; Parameter Name ; Value ; Type                          ;
++----------------+-------+-------------------------------+
+; width          ; 8     ; Signed Integer                ;
++----------------+-------+-------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------+
+; Parameter Settings for User Entity Instance: regP:u_rd ;
++----------------+-------+-------------------------------+
+; Parameter Name ; Value ; Type                          ;
++----------------+-------+-------------------------------+
+; width          ; 8     ; Signed Integer                ;
++----------------+-------+-------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: pwm_module:u_pwm1 ;
++----------------+-------+---------------------------------------+
+; Parameter Name ; Value ; Type                                  ;
++----------------+-------+---------------------------------------+
+; cnt_width      ; 4     ; Signed Integer                        ;
+; duty_width     ; 4     ; Signed Integer                        ;
+; div_const      ; 155   ; Signed Integer                        ;
++----------------+-------+---------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: pwm_module:u_pwm1|ContGen:u_div ;
++----------------+-------+-----------------------------------------------------+
+; Parameter Name ; Value ; Type                                                ;
++----------------+-------+-----------------------------------------------------+
+; nbits          ; 8     ; Signed Integer                                      ;
+; cuenta_fin     ; 155   ; Signed Integer                                      ;
++----------------+-------+-----------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: pwm_module:u_pwm1|ContGen:u_cnt ;
++----------------+-------+-----------------------------------------------------+
+; Parameter Name ; Value ; Type                                                ;
++----------------+-------+-----------------------------------------------------+
+; nbits          ; 4     ; Signed Integer                                      ;
+; cuenta_fin     ; 15    ; Signed Integer                                      ;
++----------------+-------+-----------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: pwm_module:u_pwm1|regP:u_sh ;
++----------------+-------+-------------------------------------------------+
+; Parameter Name ; Value ; Type                                            ;
++----------------+-------+-------------------------------------------------+
+; width          ; 4     ; Signed Integer                                  ;
++----------------+-------+-------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: pwm_module:u_pwm1|regP:u_cmp ;
++----------------+-------+--------------------------------------------------+
+; Parameter Name ; Value ; Type                                             ;
++----------------+-------+--------------------------------------------------+
+; width          ; 4     ; Signed Integer                                   ;
++----------------+-------+--------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: pwm_module:u_pwm2 ;
++----------------+-------+---------------------------------------+
+; Parameter Name ; Value ; Type                                  ;
++----------------+-------+---------------------------------------+
+; cnt_width      ; 4     ; Signed Integer                        ;
+; duty_width     ; 4     ; Signed Integer                        ;
+; div_const      ; 155   ; Signed Integer                        ;
++----------------+-------+---------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: pwm_module:u_pwm2|ContGen:u_div ;
++----------------+-------+-----------------------------------------------------+
+; Parameter Name ; Value ; Type                                                ;
++----------------+-------+-----------------------------------------------------+
+; nbits          ; 8     ; Signed Integer                                      ;
+; cuenta_fin     ; 155   ; Signed Integer                                      ;
++----------------+-------+-----------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: pwm_module:u_pwm2|ContGen:u_cnt ;
++----------------+-------+-----------------------------------------------------+
+; Parameter Name ; Value ; Type                                                ;
++----------------+-------+-----------------------------------------------------+
+; nbits          ; 4     ; Signed Integer                                      ;
+; cuenta_fin     ; 15    ; Signed Integer                                      ;
++----------------+-------+-----------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: pwm_module:u_pwm2|regP:u_sh ;
++----------------+-------+-------------------------------------------------+
+; Parameter Name ; Value ; Type                                            ;
++----------------+-------+-------------------------------------------------+
+; width          ; 4     ; Signed Integer                                  ;
++----------------+-------+-------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: pwm_module:u_pwm2|regP:u_cmp ;
++----------------+-------+--------------------------------------------------+
+; Parameter Name ; Value ; Type                                             ;
++----------------+-------+--------------------------------------------------+
+; width          ; 4     ; Signed Integer                                   ;
++----------------+-------+--------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "pwm_module:u_pwm1|ContGen:u_div"                                                      ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; Port   ; Type   ; Severity ; Details                                                                             ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; ce     ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; conteo ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "spi_slave_sync:u_spi"                                                                    ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; Port      ; Type   ; Severity ; Details                                                                             ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; miso_byte ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+    Info: Processing started: Tue May 13 15:46:16 2025
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off motor_ctrl_top -c motor_ctrl_top
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 16 of the 16 processors detected
+Info (12021): Found 2 design units, including 1 entities, in source file motor_ctrl_top.vhd
+    Info (12022): Found design unit 1: motor_ctrl_top-rtl File: C:/intelFPGA_lite/18.1/cokkkk/motor_ctrl_top.vhd Line: 18
+    Info (12023): Found entity 1: motor_ctrl_top File: C:/intelFPGA_lite/18.1/cokkkk/motor_ctrl_top.vhd Line: 5
+Warning (12019): Can't analyze file -- file Vhdl2.vhd is missing
+Info (12021): Found 2 design units, including 1 entities, in source file decoder.vhd
+    Info (12022): Found design unit 1: decoder-rtl File: C:/intelFPGA_lite/18.1/cokkkk/decoder.vhd Line: 11
+    Info (12023): Found entity 1: decoder File: C:/intelFPGA_lite/18.1/cokkkk/decoder.vhd Line: 3
+Info (12021): Found 2 design units, including 1 entities, in source file ctrl_fsm.vhd
+    Info (12022): Found design unit 1: ctrl_fsm-rtl File: C:/intelFPGA_lite/18.1/cokkkk/ctrl_fsm.vhd Line: 8
+    Info (12023): Found entity 1: ctrl_fsm File: C:/intelFPGA_lite/18.1/cokkkk/ctrl_fsm.vhd Line: 3
+Info (12021): Found 2 design units, including 1 entities, in source file spi_slave_sync.vhd
+    Info (12022): Found design unit 1: spi_slave_sync-rtl File: C:/intelFPGA_lite/18.1/cokkkk/spi_slave_sync.vhd Line: 14
+    Info (12023): Found entity 1: spi_slave_sync File: C:/intelFPGA_lite/18.1/cokkkk/spi_slave_sync.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file regp.vhd
+    Info (12022): Found design unit 1: regP-rtl File: C:/intelFPGA_lite/18.1/cokkkk/regP.vhd Line: 10
+    Info (12023): Found entity 1: regP File: C:/intelFPGA_lite/18.1/cokkkk/regP.vhd Line: 3
+Info (12021): Found 2 design units, including 1 entities, in source file contgen.vhd
+    Info (12022): Found design unit 1: ContGen-rtl File: C:/intelFPGA_lite/18.1/cokkkk/ContGen.vhd Line: 10
+    Info (12023): Found entity 1: ContGen File: C:/intelFPGA_lite/18.1/cokkkk/ContGen.vhd Line: 3
+Info (12021): Found 2 design units, including 0 entities, in source file pwm_pkg.vhd
+    Info (12022): Found design unit 1: pwm_pkg File: C:/intelFPGA_lite/18.1/cokkkk/pwm_pkg.vhd Line: 5
+    Info (12022): Found design unit 2: pwm_pkg-body File: C:/intelFPGA_lite/18.1/cokkkk/pwm_pkg.vhd Line: 9
+Info (12021): Found 2 design units, including 1 entities, in source file pwm_module.vhd
+    Info (12022): Found design unit 1: pwm_module-rtl File: C:/intelFPGA_lite/18.1/cokkkk/pwm_module.vhd Line: 12
+    Info (12023): Found entity 1: pwm_module File: C:/intelFPGA_lite/18.1/cokkkk/pwm_module.vhd Line: 5
+Info (12127): Elaborating entity "motor_ctrl_top" for the top level hierarchy
+Info (12128): Elaborating entity "spi_slave_sync" for hierarchy "spi_slave_sync:u_spi" File: C:/intelFPGA_lite/18.1/cokkkk/motor_ctrl_top.vhd Line: 44
+Info (12128): Elaborating entity "ctrl_fsm" for hierarchy "ctrl_fsm:u_fsm" File: C:/intelFPGA_lite/18.1/cokkkk/motor_ctrl_top.vhd Line: 49
+Info (12128): Elaborating entity "regP" for hierarchy "regP:u_rc" File: C:/intelFPGA_lite/18.1/cokkkk/motor_ctrl_top.vhd Line: 53
+Info (12128): Elaborating entity "pwm_module" for hierarchy "pwm_module:u_pwm1" File: C:/intelFPGA_lite/18.1/cokkkk/motor_ctrl_top.vhd Line: 59
+Info (12128): Elaborating entity "ContGen" for hierarchy "pwm_module:u_pwm1|ContGen:u_div" File: C:/intelFPGA_lite/18.1/cokkkk/pwm_module.vhd Line: 18
+Info (12128): Elaborating entity "ContGen" for hierarchy "pwm_module:u_pwm1|ContGen:u_cnt" File: C:/intelFPGA_lite/18.1/cokkkk/pwm_module.vhd Line: 22
+Info (12128): Elaborating entity "regP" for hierarchy "pwm_module:u_pwm1|regP:u_sh" File: C:/intelFPGA_lite/18.1/cokkkk/pwm_module.vhd Line: 26
+Info (12128): Elaborating entity "decoder" for hierarchy "decoder:u_dec" File: C:/intelFPGA_lite/18.1/cokkkk/motor_ctrl_top.vhd Line: 68
+Info (18000): Registers with preset signals will power-up high File: C:/intelFPGA_lite/18.1/cokkkk/motor_ctrl_top.vhd Line: 19
+Info (21057): Implemented 143 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 5 input pins
+    Info (21059): Implemented 8 output pins
+    Info (21061): Implemented 130 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 2 warnings
+    Info: Peak virtual memory: 4769 megabytes
+    Info: Processing ended: Tue May 13 15:46:31 2025
+    Info: Elapsed time: 00:00:15
+    Info: Total CPU time (on all processors): 00:00:36
+
+
